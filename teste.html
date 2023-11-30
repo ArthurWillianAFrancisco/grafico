@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <title>Bootstrap Line Chart</title>
+</head>
+<body>
+    <h6 class="p-2">Sexo</h6>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="myRadio" value="option1">
+            <label class="form-check-label" for="myRadio">masulino</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="myRadio2" value="option2">
+            <label class="form-check-label" for="myRadio2">Feminino</label>
+        </div>
+        <button onclick="myFunction()">Try it</button>
+        <button onclick="Grafico()" class="btn btn-primary">Mostrar Grafico</button>
+  <div class="container mt-4">
+    <canvas id="pieChart" width="400" height="200"></canvas>
+  </div>
+  <script>
+    var contH = 1
+    var contM = 1
+    function myFunction() {
+        var x = document.getElementById("myRadio").checked;
+        var y = document.getElementById("myRadio2").checked;
+        if(x){
+            contH++;
+            alert(contH)
+        }else if(y) {
+            contM++;
+            alert(contM)
+        }  
+    }
+
+    function Grafico(){
+    var sexo = [contH, contM]
+    // Seus dados de gráfico aqui (exemplo)
+    var data = {
+        labels: ["Homens", "Mulheres"],
+        datasets: [{
+        data: sexo,
+        backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"]
+        }]
+    };
+
+    // Configuração do gráfico
+    var options = {
+        responsive: true,
+        maintainAspectRatio: false,
+    };
+
+    // Criar gráfico de pizza
+    var ctx = document.getElementById('pieChart').getContext('2d');
+    var pieChart = new Chart(ctx, {
+        type: 'pie',
+        data: data,
+        options: options
+    })
+    }
+  </script>
+</body>
+</html>
