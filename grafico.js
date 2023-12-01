@@ -156,9 +156,3 @@ function Grafico(){
         options: options
     })
 }
-function reinicia(){
-    se;
-    myLineChart.update();
-
-    pieChart.reset();
-}
