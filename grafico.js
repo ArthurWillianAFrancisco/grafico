@@ -124,7 +124,7 @@ function Grafico(){
         options: options
     })
 //----------------------------------------------------------------------//    
-// raça
+// raca
 
     var raca = [
         contbranco, 
