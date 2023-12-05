@@ -15,7 +15,49 @@ var pieChart2;
 var pieChart3;
 
 function myFunction2() {
-    // ... (seu código para contar)
+    //variavel e codigo genero
+    var H = document.getElementById("myRadio").checked;
+    var M = document.getElementById("myRadio2").checked;
+    if(H){
+        contH++;
+    } else if(M) {
+        contM++;
+    }  
+
+    //variavel e codigo faixa etaria
+    var bebe = document.getElementById("bebe").checked;
+    var crianca = document.getElementById("crianca").checked;
+    var adolecente = document.getElementById("adolecente").checked;
+    var adulto = document.getElementById("adulto").checked;
+    var idoso = document.getElementById("idoso").checked;
+    
+    if(bebe){
+        contbebe++;
+    } else if(crianca) {
+        contcrianca++;
+    } else if(adolecente) {
+        contadolecente++;
+    } else if(adulto) {
+        contadulto++;
+    } else if(idoso) {
+        contidoso++;
+    };
+  
+    //variavel e codigo raça
+    var branco = document.getElementById("branco").selected;
+    var amarelo = document.getElementById("amarelo").selected;
+    var negro = document.getElementById("negro").selected;
+    var indio = document.getElementById("indio").selected;
+    
+    if(branco){
+        contbranco++;
+    } else if(amarelo) {
+        contamarelo++;
+    } else if(negro) {
+        contnegro++;
+    } else if(indio) {
+        contindio++;
+    };
 
     // Chama a função para atualizar os gráficos
     atualizaGraficos();
