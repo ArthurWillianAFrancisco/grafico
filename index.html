@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt=br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,51 +10,52 @@
 </head>
 <body class="bg-primary-subtle text-emphasis-primary p-2">
     <h1 class="text-center m-3">Formulario</h1>
+    <div class="container">
         <div class="row p-2">
             <div class="col">
-            <input type="text" class="form-control" placeholder="nome" aria-label="First name">
+                <input type="text" class="form-control" placeholder="nome" aria-label="First name" id="nome">
             </div>
             <div class="col">
-            <input type="text" class="form-control" placeholder="sobre nome" aria-label="Last name">
+                <input type="text" class="form-control" placeholder="sobrenome" aria-label="Last name" id="sobrenome">
             </div>
-        
+
             <div class="col">
-                <input type="text" class="form-control" placeholder="CPF" aria-label="Zip" maxlength="11" minlength="11">
+                <input type="text" class="form-control" placeholder="CPF" aria-label="Zip" maxlength="11" minlength="11" id="cpf">
             </div>
         </div>
         <div class="ms-2">
-        <h6 class="p-2">Sexo</h6>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="RadioOptions" id="myRadio" value="option1">
-            <label class="form-check-label" for="myRadio">masulino</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="RadioOptions" id="myRadio2" value="option2">
-            <label class="form-check-label" for="myRadio2">Feminino</label>
-        </div>
+            <h6 class="p-2">Sexo</h6>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="RadioOptions" id="myRadio" value="option1">
+                <label class="form-check-label" for="myRadio">Masculino</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="RadioOptions" id="myRadio2" value="option2">
+                <label class="form-check-label" for="myRadio2">Feminino</label>
+            </div>
         </div>
         <div class="ms-2">
-        <h6 class="p-2">Faixa etaria</h6>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="bebe" value="option3">
-            <label class="form-check-label" for="bebe">0-5</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="crianca" value="option4">
-            <label class="form-check-label" for="crianca">6-12</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="adolecente" value="option5">
-            <label class="form-check-label" for="adolecente">13-18</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="adulto" value="option6">
-            <label class="form-check-label" for="adulto">19-60</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="idoso" value="option7">
-            <label class="form-check-label" for="idoso">61-100</label>
-        </div>
+            <h6 class="p-2">Faixa etária</h6>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="bebe" value="option3">
+                <label class="form-check-label" for="bebe">0-5</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="crianca" value="option4">
+                <label class="form-check-label" for="crianca">6-12</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="adolecente" value="option5">
+                <label class="form-check-label" for="adolecente">13-18</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="adulto" value="option6">
+                <label class="form-check-label" for="adulto">19-60</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="idoso" value="option7">
+                <label class="form-check-label" for="idoso">61-100</label>
+            </div>
         </div>
         <div class="row p-2">
             <div class="col-md-6 mt-4">
@@ -76,18 +77,19 @@
                 <input type="text" class="form-control" placeholder="CEP" id="inputZip" maxlength="8" minlength="8">
             </div>
             <select class="form-select col mt-4" aria-label="Default select example"  id="lista-conteudos">
+                <option></option>
                 <option id="branco" value="1">Branco</option>
                 <option id="amarelo" value="2">Amarelo</option>
                 <option id="negro" value="3">Negro</option>
                 <option id="indio" value="4">Indio</option>
             </select>
         </div>
-        
         <div class="col p-2">
             <button onclick="myFunction()" class="btn btn-primary">Enviar</button>
-            <button onclick="Grafico()" class="btn btn-primary">Mostrar Grafico</button>
-            <button onclick="reinicia()" class="btn btn-primary">ApagaGrafico</button>
+            <button onclick="mostrarCadastros()" class="btn btn-primary">Mostrar Cadastros</button>
+            <button onclick="excluirCadastro()" class="btn btn-danger">Excluir Cadastro</button>
         </div>
+    </div>
     <div class="row">
         <div class="col">
             <canvas id="pieChart"></canvas>
@@ -100,9 +102,72 @@
         </div>
     </div>  
 
-
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="grafico.js"></script>
+    <script>
+        // Arrays para armazenar os cadastros e IDs para controle
+        var cadastros = [];
+        var proximoId = 1;
 
+        // Seus contadores permanecem os mesmos
+        
+        async function myFunction() {
+            // Código para obter os dados do formulário
+            var nome = document.getElementById("nome").value;
+            var sobrenome = document.getElementById("sobrenome").value;
+            // Adicione mais campos conforme necessário
+
+            // Criação de um objeto de cadastro com ID único
+            var cadastro = {
+                id: proximoId++,
+                nome: nome,
+                sobrenome: sobrenome,
+                // Adicione mais campos conforme necessário
+            };
+
+            // Adiciona o cadastro ao array
+            cadastros.push(cadastro);
+
+            // Limpa os campos do formulário após o cadastro
+            document.getElementById("nome").value = "";
+            document.getElementById("sobrenome").value = "";
+            document.getElementById("cpf").value = "";
+            document.getElementById("inputEmail4").value = "";
+            document.getElementById("inputAddress").value = "";
+            document.getElementById("inputAddress2").value = "";
+            document.getElementById("inputCity").value = "";
+            document.getElementById("inputEstado").value = "";
+            document.getElementById("inputZip").value = "";
+            // Limpe mais campos conforme necessário
+            myFunction2()
+        }
+
+        function mostrarCadastros() {
+            // Mostra os cadastros em um alerta
+            var cadastrosStr = "Lista de Cadastros:\n";
+            cadastros.forEach(function(cadastro) {
+                cadastrosStr += `ID: ${cadastro.id}, Nome: ${cadastro.nome}, Sobrenome: ${cadastro.sobrenome}\n`;
+            });
+            alert(cadastrosStr);
+        }
+
+        function excluirCadastro() {
+            // Solicita o ID do cadastro a ser excluído
+            var idExcluir = prompt("Digite o ID do cadastro a ser excluído:");
+
+            // Converte o ID para número
+            idExcluir = parseInt(idExcluir);
+
+            // Verifica se o ID é válido e exclui o cadastro correspondente
+            if (!isNaN(idExcluir)) {
+                cadastros = cadastros.filter(function(cadastro) {
+                    return cadastro.id !== idExcluir;
+                });
+                alert(`Cadastro com ID ${idExcluir} excluído.`);
+            } else {
+                alert("ID inválido. Exclusão cancelada.");
+            }
+        }
+    </script>
 </body>
 </html>
