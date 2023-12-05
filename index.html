@@ -115,6 +115,7 @@
             // Código para obter os dados do formulário
             var nome = document.getElementById("nome").value;
             var sobrenome = document.getElementById("sobrenome").value;
+            var cpf = document.getElementById("cpf").value;
             // Adicione mais campos conforme necessário
 
             // Criação de um objeto de cadastro com ID único
@@ -122,6 +123,7 @@
                 id: proximoId++,
                 nome: nome,
                 sobrenome: sobrenome,
+                cpf: cpf
                 // Adicione mais campos conforme necessário
             };
 
@@ -146,7 +148,7 @@
             // Mostra os cadastros em um alerta
             var cadastrosStr = "Lista de Cadastros:\n";
             cadastros.forEach(function(cadastro) {
-                cadastrosStr += `ID: ${cadastro.id}, Nome: ${cadastro.nome}, Sobrenome: ${cadastro.sobrenome}\n`;
+                cadastrosStr += `ID: ${cadastro.id}, Nome: ${cadastro.nome}, Sobrenome: ${cadastro.sobrenome}, CPF: ${cadastro.cpf}\n`;
             });
             alert(cadastrosStr);
         }
