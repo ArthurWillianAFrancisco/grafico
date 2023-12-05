@@ -1,114 +1,42 @@
-//contador genero
 var contH = 0;
 var contM = 0;
-
-//contador faixa etaria
 var contbebe = 0;
 var contcrianca = 0;
 var contadolecente = 0;
 var contadulto = 0;
 var contidoso = 0;
-
-//contador cor
 var contbranco = 0;
 var contamarelo = 0;
 var contnegro = 0;
 var contindio = 0;
 
+var pieChart;
+var pieChart2;
+var pieChart3;
 
-async function myFunction() {
-    //variavel e codigo genero
-    var H = document.getElementById("myRadio").checked;
-    var M = document.getElementById("myRadio2").checked;
-    if(H){
-        contH++;
-    }else if(M) {
-        contM++;
-    }  
+function myFunction2() {
+    // ... (seu código para contar)
 
-  
-
-    //variavel e codigo faixa etaria
-    var bebe = document.getElementById("bebe").checked;
-    var crianca = document.getElementById("crianca").checked;
-    var adolecente = document.getElementById("adolecente").checked;
-    var adulto = document.getElementById("adulto").checked;
-    var idoso = document.getElementById("idoso").checked;
-    
-    if(bebe){
-        contbebe++;
-    }else if(crianca) {
-        contcrianca++;
-    }else if(adolecente) {
-        contadolecente++;
-    }else if(adulto) {
-        contadulto++;
-    }else if(idoso) {
-        contidoso++;
-    };
-  
-    //variavel e codigo raça
-    var branco = document.getElementById("branco").selected;
-    var amarelo = document.getElementById("amarelo").selected;
-    var negro = document.getElementById("negro").selected;
-    var indio = document.getElementById("indio").selected;
-	
-    if(branco){
-        contbranco++;
-    }else if(amarelo) {
-        contamarelo++;
-    }else if(negro) {
-        contnegro++;
-    }else if(indio) {
-        contindio++;
-    };
+    // Chama a função para atualizar os gráficos
+    atualizaGraficos();
 }
 
-function Grafico(){
-    
-    var sexo = [contH, contM]
-    alert(sexo)
+function atualizaGraficos() {
+    // Destrói os gráficos existentes se já foram criados
+    if (pieChart) {
+        pieChart.destroy();
+    }
+    if (pieChart2) {
+        pieChart2.destroy();
+    }
+    if (pieChart3) {
+        pieChart3.destroy();
+    }
 
-    // Seus dados de gráfico aqui (exemplo)
-    var data = {
-        labels: ["Homens", "Mulheres"],
-        datasets: [{
-        data: sexo,
-        backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"]
-        }]
-    };
-
-    // Configuração do gráfico
-    var options = {
-        responsive: true,
-        maintainAspectRatio: false,
-    };
-
-    // Criar gráfico de pizza
-
-    var ctx = document.getElementById('pieChart').getContext('2d');
-    var pieChart = new Chart(ctx, {
-        type: 'pie',
-        data: data,
-        options: options
-    })
-//------------------------------------------------------------------------//
-//faixa etinia 
-
-    var idade = [
-        contbebe, 
-        contcrianca,
-        contadolecente,
-        contadulto,
-        contidoso]
-
-    var data = {
-        labels: ["Bebê", "Criança", "Adolecente", "Adulto", "Idoso"],
-        datasets: [{
-        data: idade,
-        backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"]
-        }]
-    };
+    // Gera os novos dados para os gráficos
+    var sexo = [contH, contM];
+    var idade = [contbebe, contcrianca, contadolecente, contadulto, contidoso];
+    var raca = [contbranco, contamarelo, contnegro, contindio];
 
     // Configuração do gráfico
     var options = {
@@ -116,43 +44,43 @@ function Grafico(){
         maintainAspectRatio: false,
     };
 
-    // Criar gráfico de pizza
-    var ctx = document.getElementById('pieChart2').getContext('2d');
-    var pieChart2 = new Chart(ctx, {
+    // Criação de gráficos
+    var ctx1 = document.getElementById('pieChart').getContext('2d');
+    pieChart = new Chart(ctx1, {
         type: 'pie',
-        data: data,
+        data: {
+            labels: ["Homens", "Mulheres"],
+            datasets: [{
+                data: sexo,
+                backgroundColor: ["#FF6384", "#36A2EB"]
+            }]
+        },
         options: options
-    })
-//----------------------------------------------------------------------//    
-// raca
+    });
 
-    var raca = [
-        contbranco, 
-        contamarelo,
-        contnegro,
-        contindio]
-    alert(raca)
-   
-    
-    var data = {
-        labels: ["branco", "amarelo", "negro", "indio"],
-        datasets: [{
-        data: raca,
-        backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56"]
-        }]
-    };
-
-    // Configuração do gráfico
-    var options = {
-        responsive: true,
-        maintainAspectRatio: false,
-    };
-
-    // Criar gráfico de pizza
-    var ctx = document.getElementById('pieChart3').getContext('2d');
-    var pieChart3 = new Chart(ctx, {
+    var ctx2 = document.getElementById('pieChart2').getContext('2d');
+    pieChart2 = new Chart(ctx2, {
         type: 'pie',
-        data: data,
+        data: {
+            labels: ["Bebê", "Criança", "Adolescente", "Adulto", "Idoso"],
+            datasets: [{
+                data: idade,
+                backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#FF5733", "#33FF57"]
+            }]
+        },
         options: options
-    })
+    });
+
+    var ctx3 = document.getElementById('pieChart3').getContext('2d');
+    pieChart3 = new Chart(ctx3, {
+        type: 'pie',
+        data: {
+            labels: ["Branco", "Amarelo", "Negro", "Indio"],
+            datasets: [{
+                data: raca,
+                backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#FF5733"]
+            }]
+        },
+        options: options
+    });
 }
