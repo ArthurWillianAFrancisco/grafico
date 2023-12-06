@@ -12,6 +12,7 @@
 <body class="bg-primary-subtle text-emphasis-primary p-2">
     <h1 class="text-center m-3">Formulario</h1>
     <div class="container needs-validation" novalidate>
+        <form method="post">
         <div class="row p-2">
             <div class="col">
                 <input type="text" class="form-control" placeholder="nome" aria-label="First name" id="nome" required>
@@ -21,7 +22,7 @@
             </div>
 
             <div class="col">
-                <input type="text" class="form-control" placeholder="CPF" aria-label="Zip" maxlength="11" minlength="11" id="cpf">
+                <input type="number" class="form-control" placeholder="CPF" aria-label="Zip" maxlength="11" minlength="11" id="cpf">
             </div>
         </div>
         <div class="ms-2">
@@ -75,7 +76,7 @@
                 <input type="text" class="form-control" placeholder="Estado"  id="inputEstado" required>
             </div>
             <div class="col-6 mt-4">
-                <input type="text" class="form-control" placeholder="CEP" id="inputZip" maxlength="8" minlength="8">
+                <input type="number" class="form-control" placeholder="CEP" id="inputZip" maxlength="8" minlength="8">
             </div>
             <select class="form-select col mt-4" aria-label="Default select example"  id="lista-conteudos">
                 <option></option>
@@ -90,6 +91,7 @@
             <button onclick="mostrarCadastros()" class="btn btn-primary">Mostrar Cadastros</button>
             <button onclick="excluirCadastro()" class="btn btn-danger">Excluir Cadastro</button>
         </div>
+        </form>
     </div>
     <div class="row">
         <div class="col">
