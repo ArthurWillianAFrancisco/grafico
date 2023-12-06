@@ -12,7 +12,6 @@
 <body class="bg-primary-subtle text-emphasis-primary p-2">
     <h1 class="text-center m-3">Formulario</h1>
     <div class="container needs-validation" novalidate>
-        <form method="post">
         <div class="row p-2">
             <div class="col">
                 <input type="text" class="form-control" placeholder="nome" aria-label="First name" id="nome" required>
@@ -91,7 +90,6 @@
             <button onclick="mostrarCadastros()" class="btn btn-primary">Mostrar Cadastros</button>
             <button onclick="excluirCadastro()" class="btn btn-danger">Excluir Cadastro</button>
         </div>
-        </form>
     </div>
     <div class="row">
         <div class="col">
@@ -111,21 +109,29 @@
         // Arrays para armazenar os cadastros e IDs para controle
         var cadastros = [];
         var proximoId = 1;
+        var limiteCadastros = 9; // Defina o limite do cadastro
 
         // Seus contadores permanecem os mesmos
         
         async function myFunction() {
+
+            if (cadastros.length > limiteCadastros) {
+                alert('Limite de cadastros atingido.');
+                return;
+            }
+
             // Código para obter os dados do formulário
             var nome = document.getElementById("nome").value;
             var sobrenome = document.getElementById("sobrenome").value;
             var cpf = document.getElementById("cpf").value;
-            var email = document.getElementById("inputEmail4").value = "";
-            var bairro = document.getElementById("inputAddress").value = "";
-            var endereco = document.getElementById("inputAddress2").value = "";
-            var cidade = document.getElementById("inputCity").value = "";
-            var estado = document.getElementById("inputEstado").value = "";
+            var email = document.getElementById("inputEmail4").value;
+            var bairro = document.getElementById("inputAddress").value;
+            var endereco = document.getElementById("inputAddress2").value;
+            var cidade = document.getElementById("inputCity").value;
+            var estado = document.getElementById("inputEstado").value;
             var cep = document.getElementById("inputZip").value;
             // Adicione mais campos conforme necessário
+            
 
              // Adicionando a validação do CPF
             if (!validarCPF(cpf)) {
@@ -151,7 +157,7 @@
                 cidade: cidade,
                 estado, estado,
                 cep: cep
-                // Adicione mais campos conforme necessário
+                
             };
 
             // Adiciona o cadastro ao array
@@ -167,7 +173,7 @@
             document.getElementById("inputCity").value = "";
             document.getElementById("inputEstado").value = "";
             document.getElementById("inputZip").value = "";
-            // Limpe mais campos conforme necessário
+            
             myFunction2()
         }
 
